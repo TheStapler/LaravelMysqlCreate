@@ -1,0 +1,29 @@
+{
+    "name": "thestapler/laravel-mysql-create",
+    "description": "Create the MySQL database from the command line in Laravel",
+    "keywords": ["laravel", "mysql", "dbcreate"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Steve Staples",
+            "email": "thestapler.ca@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "TheStapler\\LaravelMysqlDbCreate\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": ["TheStapler\\LaravelMysqlDbCreate\\MysqlDbCreateServiceProvider"]
+        }
+    },
+
+    "require": {
+        "php": "^7.3|^8.0",
+        "laravel/framework": "^8.12"
+    }
+
+}
