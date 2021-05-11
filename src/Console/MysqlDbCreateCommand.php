@@ -18,13 +18,14 @@ class MysqlDbCreateCommand extends Command
     public function handle()
     {
         $database = env('DB_DATABASE', false);
+
         if(! $database) {
             $this->info('Skipping database creation because env(DB_DATABASE) is undefined');
             return;
         }
 
         try {
-            $pdo = $this->getPDOConnection(env('DB_HOST'), env('DB_PORT'), env('DB_USERNAME'), env('DB_PASSWORD'));
+            $pdo = $this->getPDOConnection(env('DB_HOST'), env('DB_PORT', 3306), env('DB_USERNAME', 'root'), env('DB_PASSWORD'));
             $pdo->exec(sprintf(
                 'CREATE DATABASE IF NOT EXISTS %s CHARACTER SET %s COLLATE %s;',
                 $database,

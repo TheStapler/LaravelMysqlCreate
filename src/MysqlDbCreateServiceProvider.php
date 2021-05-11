@@ -8,14 +8,10 @@ class MysqlDbCreateServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->commands([
-            MysqlDbCreateCommand::class,
-        ]);
-//        //dd('this');
-//        if ($this->app->runningInConolse()) {
-//            $this->commands([
-//                MysqlDbCreateCommand::class,
-//            ]);
-//        }
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                MysqlDbCreateCommand::class,
+            ]);
+        }
     }
 }
